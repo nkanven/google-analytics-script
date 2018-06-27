@@ -192,7 +192,7 @@ def print_results(results):
               my_pickler = pickle.Pickler(f)
               my_pickler.dump(int(users))
 
-          #Add this if you use slack and want to receive instant alert on a channel. You'll need a slack app and a webhook to post to
+          #This if you use slack and want to receive instant alert on a channel. You'll need a slack app and a webhook to post to
           message = "Realtime user increase. There are actually " + users + " realtime users"
           headers = {
               'Content-type': 'application/json',
@@ -200,7 +200,7 @@ def print_results(results):
 
           data = '{"text":"'+message+'"}'
 
-          response = requests.post('https://hooks.slack.com/services/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',
+          response = requests.post(YOUR_SLACK_WEBHOOK_URL_HERE,
                                    headers=headers, data=data)
           print(response)
           #messagebox.showinfo("Realtime user increase", "There are actually " + users + " realtime users")
